@@ -3,9 +3,9 @@ public with sharing class FunctionApex {
         System.debug('Invoking myfunction');
 
         functions.Function myFunction = functions.Function.get('functions_load.processlargedatajs');
-        functions.FunctionInvocation invocation = myFunction.invoke('{"latitude": "51.16", "longitude": "-164.14", "length": 20}');
+        functions.FunctionInvocation invocation = myFunction.invoke('{"latitude": "51.16", "longitude": "-164.14", "length": 1000}');
         String jsonResponse = invocation.getResponse();
     
-        System.debug('Response from myfunction ' + jsonResponse);
+        System.debug('Response from myfunction ' + jsonResponse + '========================LOG ENDS HERE====================');
     }
 }
