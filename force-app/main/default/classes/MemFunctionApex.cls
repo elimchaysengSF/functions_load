@@ -12,7 +12,7 @@ public with sharing class MemFunctionApex {
     public static void test(Decimal num) {
         System.debug('Invoking memoryfunction');
 
-        functions.Function memoryFunction = functions.Function.get('UATProject.memoryfunction');
+        functions.Function memoryFunction = functions.Function.get('functions_load.memoryfunction');
         String payload = '{"Iterations" : ' + num + '}'; //num is in millions of iterations
         System.debug('Payload:' + payload);
         functions.FunctionInvocation invocation = memoryFunction.invoke(payload);

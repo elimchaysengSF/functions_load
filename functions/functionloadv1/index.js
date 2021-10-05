@@ -47,12 +47,22 @@ module.exports = async function (event, context, logger) {
   // Assign the nearest x schools to the results constant based on the length property provided in the payload
   const results = schools.slice(0, length);
 
+  // show the memory 
+  let showmem = function() {
+    let used = process.memoryUsage();
+    for (var key in used) {
+      console.log(key, "=", used[key]/(1024*1024*1024), "GB");
+    }
+  }
+
   // return the results
   logger.info(`**********--------------RESULTS HERE x-times:${length} ---------------------*************: ${JSON.stringify(results)}`);
   return { schools: results };
 
   }
 };
+
+
 
 /**
  * @param {string} latitudeSt:  represents the latitude of the origin point
