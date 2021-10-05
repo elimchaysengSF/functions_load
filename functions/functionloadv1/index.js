@@ -51,9 +51,15 @@ module.exports = async function (event, context, logger) {
   let showmem = function() {
     let used = process.memoryUsage();
     for (var key in used) {
-      console.log(key, "=", used[key]/(1024*1024*1024), "GB");
+      logger.info(key, "=", used[key]/(1024*1024*1024), "GB");
     }
   }
+
+  // Requiring module
+var process = require('process')
+  
+// Prints the output as an object
+console.log(process.memoryUsage())
 
   // return the results
   logger.info(`**********--------------RESULTS HERE x-times:${length} ---------------------*************: ${JSON.stringify(results)}`);
