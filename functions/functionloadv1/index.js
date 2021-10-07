@@ -46,24 +46,22 @@ module.exports = async function (event, context, logger) {
 
   // Assign the nearest x schools to the results constant based on the length property provided in the payload
   const results = schools.slice(0, length);
-
+  var process = require('process');
   // show the memory 
   let showmem = function() {
     let used = process.memoryUsage();
     for (var key in used) {
-      logger.info(key, "=", used[key]/(1024*1024*1024), "GB");
+      key, "=", used[key]/(1024*1024*1024), "GB";
+      logger.info(key); 
     }
   }
 
-  // Requiring module
-var process = require('process')
-  
-// Prints the output as an object
-console.log(process.memoryUsage())
 
   // return the results
+  
   logger.info(`**********--------------RESULTS HERE x-times:${length} ---------------------*************: ${JSON.stringify(results)}`);
   return { schools: results };
+
 
   }
 };
